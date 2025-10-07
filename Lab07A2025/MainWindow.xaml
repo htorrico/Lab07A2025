@@ -5,21 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab07A2025"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="700">
+        Title="MainWindow" Height="800" Width="700">
     <Grid Background="#FAFAFA" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <StackPanel>
-        <!-- Encabezado -->
-        <TextBlock Text="Listado de Clientes"
+            <!-- Encabezado -->
+            <TextBlock Text="Listado de Clientes"
                    FontSize="20"
                    FontWeight="Bold"
                    Margin="10"
                    Foreground="#333"/>
-            <Button Content="Listar" Height="40" Click="Button_Click"></Button>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Listar" Height="40" Width="200" Click="Button_Click"></Button>
+                <Button Content="Contar" Height="40" Width="200" Click="Button_Click_1"></Button>
+                <Label x:Name="lblsize" Height="40" Width="200" Content="Cantidad"></Label>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
+                <StackPanel Orientation="Vertical" Margin="5">
+                    <TextBlock Text="Nombre:" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtName" Width="180" Height="25"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="5">
+                    <TextBlock Text="Dirección:" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtAddress" Width="200" Height="25"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="5">
+                    <TextBlock Text="Teléfono:" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtPhone" Width="120" Height="25"/>
+                </StackPanel>
+
+                <Button Content="Agregar"
+             Width="100" Height="30"
+             Margin="10,25,0,0"
+             Background="#4CAF50"
+             Foreground="White"
+             FontWeight="Bold"
+             Click="Button_Click_2"/>
+            </StackPanel>
+
+
         </StackPanel>
+       
         <!-- DataGrid -->
         <DataGrid x:Name="dgCustomers"
                   Grid.Row="1"

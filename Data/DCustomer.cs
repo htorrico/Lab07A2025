@@ -44,5 +44,21 @@ namespace Data
 
             return customers;
         }
+
+        public void Create(Customer customer)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("sp_InsertCustomer", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@Name", customer.Name);
+                command.Parameters.AddWithValue("@Address", (object)customer.Address ?? DBNull.Value);
+                command.Parameters.AddWithValue("@Phone", (object)customer.Phone ?? DBNull.Value);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }
