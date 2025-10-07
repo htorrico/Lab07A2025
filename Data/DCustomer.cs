@@ -13,7 +13,7 @@ namespace Data
     {
 
         private string connectionString= "Server=HUGO\\SQLEXPRESS01;Database=INVOICESADB;Integrated Security=True; TrustServerCertificate=true";
-        public List<Customer> ListarCustomers()
+        public List<Customer> Read()
         {
             List<Customer> customers = new List<Customer>();
 

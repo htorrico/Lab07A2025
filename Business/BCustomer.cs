@@ -11,11 +11,11 @@ namespace Business
 {
     public class BCustomer
     {
-        public List<Customer> ObtenerCustomers()
+        public List<Customer> Read()
         {
 
          DCustomer _customerData = new DCustomer();
-         return _customerData.ListarCustomers();
+         return _customerData.Read();
            
         }
     }

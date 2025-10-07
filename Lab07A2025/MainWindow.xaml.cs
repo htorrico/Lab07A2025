@@ -8,7 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Business;
 namespace Lab07A2025
 {
     /// <summary>
@@ -19,6 +19,12 @@ namespace Lab07A2025
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BCustomer bCustomer = new BCustomer();
+            dgCustomers.ItemsSource=bCustomer.Read();
         }
     }
 }
